@@ -17,4 +17,13 @@ y2 = int(y2)
 rise = x2 - x1
 run = y2 - y1
 
+fSlope = rise/run
+
 #output
+print("Your slope is m = "+str(rise)+"/"+str(run))
+print("Your slope as a decimal is ",fSlope)
+print(rise)
+print(run)
+
+
+
