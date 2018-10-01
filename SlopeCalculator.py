@@ -1,5 +1,8 @@
+import os
+
 print("Slope Calculator:")
 
+os.system("say welcome to my slope Calculator")
 #input
 x1 = input("input x1: ")
 x1 = int(x1)
@@ -21,7 +24,8 @@ fSlope = rise/run
 
 #output
 print("Your slope is m = "+str(rise)+"/"+str(run))
-print("Your slope as a decimal is ",fSlope)
+print("Your slope as a decimal is "+str(fSlope))
+os.system("say your slope as a decimal is "+str(fSlope))
 print(rise)
 print(run)
 
