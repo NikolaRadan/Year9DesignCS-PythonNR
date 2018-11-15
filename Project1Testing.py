@@ -149,6 +149,7 @@ OPTIONS_STOCKNAME = [
 	"52 week high",
 	"52 week low",
 	"Market cap",
+	
 
 ]
 #Do not .pack after evr command but rather .grid 
