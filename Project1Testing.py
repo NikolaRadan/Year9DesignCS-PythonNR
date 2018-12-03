@@ -10,94 +10,34 @@ import tkinter as tk
 def change(*args):
 	print("running change")
 	#Step 1: Grab value
-	opt = var.get()
-#These are multiple if statments so that tou can access
-#Certain data bases aout stocks
-	
+	opt = var1.get()
+	#These are multiple if statments so that tou can access
+	#Certain data bases aout stocks
+
 	
 	for i in range(0,len(OPTIONS),1):
 		if (opt == OPTIONS[i]):
+			price = OPTIONS_PRICE[i]
+			Dividend = OPTIONS_DIVIDEND[i]
 			print(OPTIONS_PRICE[i])
 
+	#NEXT STEP: based on the second option menu you will have decide what to do?
+	#This is where you use some if statements. 
+	print(var2.get())
+	#Make an if statement for every var2 option and simply print out some text. 
+	#Price if statment
+	if var2.get() == "Price":
+		textbox.config(state = "normal")
+		textbox.insert(tk.END,var1.get()+" Price: "+str(price)+"\n")
 
-	'''
-	if (opt == OPTIONS[0]):
-		print("price: 31")
-	elif(opt == OPTIONS[1]):
-		print("price: 32")
-	elif(opt == OPTIONS[2]):
-		print("price: 33")
-	elif(opt == OPTIONS[3]):
-		print("price: 34")
-	elif(opt == OPTIONS[4]):
-		print("price: 35")
-	elif(opt == OPTIONS[5]):
-		print("Price 36")
-	elif(opt == OPTIONS[6]):
-		print("price: 37")
-	elif(opt == OPTIONS[7]):
-		print("price: 38")
-	elif(opt == OPTIONS[8]):
-		print("price: 39")
-	elif(opt == OPTIONS[9]):
-		print("price: 40")
-	elif(opt == OPTIONS[10]):
-		print("Price 41")
-	elif(opt == OPTIONS[11]):
-		print("price: 42")
-	elif(opt == OPTIONS[12]):
-		print("price: 43")
-	elif(opt == OPTIONS[13]):
-		print("price: 44")
-	elif(opt == OPTIONS[14]):
-		print("price: 45")
-	elif(opt == OPTIONS[15]):
-		print("Price 46")
-	elif(opt == OPTIONS[16]):
-		print("price: 47")
-	elif(opt == OPTIONS[17]):
-		print("price: 48")
-	elif(opt == OPTIONS[18]):
-		print("price: 49")
-	elif(opt == OPTIONS[19]):
-		print("price: 50")
-	elif(opt == OPTIONS[20]):
-		print("Price 51")
-	elif(opt == OPTIONS[21]):
-		print("price: 52")
-	elif(opt == OPTIONS[22]):
-		print("price: 53")
-	elif(opt == OPTIONS[23]):
-		print("price: 54")
-	elif(opt == OPTIONS[24]):
-		print("price: 55")
-	elif(opt == OPTIONS[25]):
-		print("Price 56")
-	elif(opt == OPTIONS[26]):
-		print("price: 57")
-	elif(opt == OPTIONS[27]):
-		print("price: 58")
-	elif(opt == OPTIONS[28]):
-		print("price: 59")
-	elif(opt == OPTIONS[29]):
-		print("price: 60")
-	elif(opt == OPTIONS[30]):
-		print("Price 61")
-	#'''
+		textbox.config(state = "disabled")
 
-#if (opt == OPTIONS_STOCKNAME[0]):
-		#print("DO THIS")
-	
-	#elif(opt == OPTIONS_STOCKNAME[1]):
-		#print("DO THAT")
-	#elif(opt == OPTIONS_STOCKNAME[2]):
-		#print("This Do")
-	#elif(opt == OPTIONS_STOCKNAME[3]):
-		#print("That Do")
-	#elif(opt == OPTIONS_STOCKNAME[4]):
-		#print("oof")
+	#Divident If statment
+	if var2.get() == "Dividend":
+		textbox.config(state = "normal")
+		textbox.insert(tk.END,var1.get()+" Dividend: "+str(Dividend)+"\n")
 
-
+		textbox.config(state = "disabled")
 
 
 root = tk.Tk()
@@ -140,37 +80,71 @@ OPTIONS= [
 	"Walmart Inc",
 	"Walt Disney Co",
 ]
-OPTIONS_PRICE = [31,32,33,34,35]
+OPTIONS_PRICE = [31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59]
 #Trying to link with second menu
 #CHANGE NAME TO LINK
+
 OPTIONS_STOCKNAME = [
 	"Price",
 	"Dividend",
 	"52 week high",
 	"52 week low",
 	"Market cap",
-	
-
+                                                      
 ]
+
+OPTIONS_DIVIDEND = [70,71,72,73,74,75,76,77,78,79,80]
+
+
+
+
+
+
+
 #Do not .pack after evr command but rather .grid 
 #so you can place the commands in order
-var = tk.StringVar(root)
-var.set(OPTIONS[0])
+var1 = tk.StringVar(root)
+var1.set(OPTIONS[0])
+
+var2 = tk.StringVar(root)
+var2.set(OPTIONS_STOCKNAME[0])
+
 #var.trace("w",change)
 
-lab1 = tk.Label(root, text = "Stock")
+lab1 = tk.Label(root, text = "Stock", font = "Kefa", background = "Royalblue1")
 lab1.grid(row = 0, column = 0)
-dropDownMenu = tk.OptionMenu(root,var, OPTIONS[0],OPTIONS[1],OPTIONS[2],OPTIONS[3],OPTIONS[4],OPTIONS[5],OPTIONS[6],OPTIONS[7],OPTIONS[8],OPTIONS[9],OPTIONS[10],OPTIONS[11],OPTIONS[12],OPTIONS[13],OPTIONS[14],OPTIONS[15],OPTIONS[16],OPTIONS[17],OPTIONS[18],OPTIONS[19],OPTIONS[20],OPTIONS[21],OPTIONS[22],OPTIONS[23],OPTIONS[24],OPTIONS[25],OPTIONS[26],OPTIONS[27],OPTIONS[28])
-dropDownMenu.grid(row = 1, column = 0, padx = 50, pady = 50)
+dropDownMenu = tk.OptionMenu(root,var1, OPTIONS[0],OPTIONS[1],OPTIONS[2],OPTIONS[3],OPTIONS[4],OPTIONS[5],OPTIONS[6],OPTIONS[7],OPTIONS[8],OPTIONS[9],OPTIONS[10],OPTIONS[11],OPTIONS[12],OPTIONS[13],OPTIONS[14],OPTIONS[15],OPTIONS[16],OPTIONS[17],OPTIONS[18],OPTIONS[19],OPTIONS[20],OPTIONS[21],OPTIONS[22],OPTIONS[23],OPTIONS[24],OPTIONS[25],OPTIONS[26],OPTIONS[27],OPTIONS[28])
+dropDownMenu.config(width = 40)
+dropDownMenu.grid(row = 1, column = 0, padx = 30, pady = 30, )
 
-dropDownMenuB = tk.OptionMenu(root,var, OPTIONS_STOCKNAME[0],OPTIONS_STOCKNAME[1],OPTIONS_STOCKNAME[2],OPTIONS_STOCKNAME[3],OPTIONS_STOCKNAME[4])
+lab2 = tk.Label(root, text = "Characteristic", font = "Kefa", background = "Royalblue1")
+lab2.grid(row = 0, column = 1)
+
+
+dropDownMenuB = tk.OptionMenu(root,var2, OPTIONS_STOCKNAME[0],OPTIONS_STOCKNAME[1],OPTIONS_STOCKNAME[2],OPTIONS_STOCKNAME[3],OPTIONS_STOCKNAME[4])
+dropDownMenuB.config(width = 20)
 dropDownMenuB.grid(row = 1, column = 1)
+
+
 #Submit button
-btn = tk.Button(root, text = "Submit", command = change)
-btn.grid(row = 2, column = 0)
+btn = tk.Button(root, text = "Select", command = change, font = "Kefa", foreground = "black", background = "honeydew4")
+btn.grid(row = 2, column = 0, columnspan = 2,sticky = "NESW")
 
 
 
+#textboxBOI
+textbox = tk.Text(root, height = 10, width = 50, foreground = "grey")
+textbox.grid(row = 3, column = 0, columnspan = 2)
+
+#entire backround colour
+root.config(background = "honeydew4")
+
+#Chamge to night mode
+#btn2 = tk.Button(root, text = "Night Mode", command = change, font = "Kefa", foreground = "black", background = "honeydew4", command= onclick1)
+#btn2.grid(row = 4, column = 0, columnspan = 2)
+#def onclick1():
+	#print("hello")
+	#root.config(background = "black")
 
 root.mainloop()
 

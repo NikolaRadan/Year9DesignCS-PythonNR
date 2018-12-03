@@ -11,7 +11,7 @@ food4 = input("Input food 4: ")
 
 foods = [food1,food2,food3] #data structures
 
-
+S
 #output
 foods.sort()
 print(foods)
