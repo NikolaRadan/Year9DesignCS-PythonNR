@@ -3,6 +3,9 @@
 #that you can use 
 import tkinter as tk
 
+
+
+#root.title("Hello boyyo")
 #root variable that holds the information
 #about the main window. That is the indow
 #With the close, min, max buttons in the top left
@@ -19,6 +22,7 @@ def change(*args):
 		if (opt == OPTIONS[i]):
 			price = OPTIONS_PRICE[i]
 			Dividend = OPTIONS_DIVIDEND[i]
+			#Market cap = OPTIONS_MARKETCAP[i]
 			print(OPTIONS_PRICE[i])
 
 	#NEXT STEP: based on the second option menu you will have decide what to do?
@@ -39,6 +43,14 @@ def change(*args):
 
 		textbox.config(state = "disabled")
 
+	#Market cap If statment 
+	'''
+	if var2.get() == "Market cap":
+		textbox.config(state = "normal")
+		textbox.insert(tk.END,var1.get()+" Market cap: "+str(Market cap)+"\n")
+
+		textbox.config(state = "disabled")
+'''
 
 root = tk.Tk()
 
@@ -95,7 +107,7 @@ OPTIONS_STOCKNAME = [
 
 OPTIONS_DIVIDEND = [70,71,72,73,74,75,76,77,78,79,80]
 
-
+OPTIONS_MARKETCAP = [100,101,102,103,104,105,106,107,108,109,110]
 
 
 
@@ -108,6 +120,7 @@ var1.set(OPTIONS[0])
 
 var2 = tk.StringVar(root)
 var2.set(OPTIONS_STOCKNAME[0])
+
 
 #var.trace("w",change)
 
@@ -139,6 +152,14 @@ textbox.grid(row = 3, column = 0, columnspan = 2)
 #entire backround colour
 root.config(background = "honeydew4")
 
+
+
+
+
+
+
+
+
 #Chamge to night mode
 #btn2 = tk.Button(root, text = "Night Mode", command = change, font = "Kefa", foreground = "black", background = "honeydew4", command= onclick1)
 #btn2.grid(row = 4, column = 0, columnspan = 2)
@@ -150,6 +171,19 @@ root.mainloop()
 
 
 
+
+
+
+
+
+
+
+
+
+
+f = open("Apple.txt", "r")
+content = f.read()
+print (content)
 
 
 
